@@ -1,0 +1,86 @@
+{% extends "web/base.html" %}
+{% load filters_web %}
+
+{% block style %}
+    {{ block.super }}
+
+    <style type="text/css">
+        div.content {
+            margin-top: 15px;
+            margin-bottom: 40px;
+        }
+
+        div.hero-unit {
+            background: none;
+            padding-left: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        p.tagline {
+            margin-top: 1.8em;
+        }
+
+        div.btn-script-wrapper {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        a.btn-script {
+            padding: 9px 14px;
+            font-size: 24px;
+            font-weight: 200;
+            line-height: 60px;
+            width: 200px;
+            height: 60px;
+        }
+
+        div.span-main {
+            margin-left: 0;
+        }
+
+        .logo-large {
+            padding: 0 18px;
+            font-size: 60px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="span6">
+                <div class="span6 span-main hero-unit">
+                    <h1><span class="badge badge-success logo logo-large">C</span>ommentum</h1>
+
+                    <p class="tagline">Комментируй всё, всех, всегда и вообще!</p>
+                </div>
+
+                <div class="span6 span-main">
+                    <h3>Инструкция по установке</h3>
+                    <ol>
+                        <li>Перетяни букмарклет на панель закладок:
+                            <div class="btn-script-wrapper">
+                                <a class="btn btn-script btn-success"
+                                   href="javascript:{{ script_load|js_minify|urlencode }}">Commentum</a>
+                            </div>
+                        </li>
+                        <li>Для использования выбери букмарклет на панели закладок.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="span5 offset1">
+                <div class="span5 hero-unit">
+                    <h3>Возможности:</h3>
+                    <ul>
+                        <li><p>Комментарии к любой web-странице</p></li>
+                        <li><p>Комментарии к фрагментам текста</p></li>
+                        <li><p>Интеграция с Twitter, Facebook, Vkontakte и Google</p></li>
+                        <li><p>Удобный интерфейс работы с комментируемыми web-страницами</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

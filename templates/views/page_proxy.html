@@ -1,0 +1,9 @@
+<head>
+    <link type="text/css" rel="stylesheet" href="/static/css/script_style.css"/>
+    <script type="text/javascript" src="/static/js/script_main.js"></script>
+    <base href="{{ page_base_url|safe }}"/>
+    <script type="text/javascript">
+        window.onload = function() {
+            script_main({{ server|safe }}, {{ page_url|safe }}, true);
+        };
+    </script>

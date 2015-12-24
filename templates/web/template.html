@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Commentum - {% block title %} Comment everything! {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link type="text/css" rel="stylesheet" href="/{{ server.static }}/bootstrap/css/bootstrap.css"/>
+    {% block style %}
+        <style type="text/css">
+            body {
+                padding-top: 40px;
+            }
+
+            .navbar-inverse .navbar-inner {
+                background: #333333 none;
+                border-color: #3D3D3D;
+            }
+
+            .footer hr {
+                border-color: #2F2F2F;
+            }
+
+            .footer {
+                color: #999999;
+                background: #333333;
+                padding: 10px 0;
+            }
+
+            .footer-menu {
+                padding: 20px 0 10px;
+            }
+
+            .footer-menu  h3 {
+                color: #999999;
+            }
+
+            .footer-menu ul > li > a {
+                color: #888888;
+                line-height: 1.9em;
+            }
+
+            .footer-menu ul {
+                margin-left: 0;
+                list-style: none;
+            }
+        </style>
+    {% endblock %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/{{ server.static }}/bootstrap/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+                {% block navigation %} {% endblock %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% block content %} {% endblock %}
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row footer-menu">
+            <div class="span3">
+                {% block bottom_menu_info %} {% endblock %}
+            </div>
+            <div class="span3">
+                {% block bottom_menu_about %} {% endblock %}
+            </div>
+        </div>
+        <hr/>
+        <footer>
+            <p>{% block copyright %}{% endblock %}</p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>

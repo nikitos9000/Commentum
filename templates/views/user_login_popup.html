@@ -1,0 +1,15 @@
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <script type="text/javascript">
+        if (window.opener && window.opener.script_popup_return)
+            window.opener.script_popup_return({{ data|safe }});
+
+        if (window.parent && window.parent.script_popup_return)
+            window.parent.script_popup_return({{ data|safe }});
+
+        window.close();
+    </script>
+</head>
+<body></body>
+</html>

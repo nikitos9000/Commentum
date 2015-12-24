@@ -1,0 +1,55 @@
+{% extends "web/template.html" %}
+
+{% block style %}
+    {{ block.super }}
+    <style type="text/css">
+        .logo {
+            padding: 0;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            border-radius: 100px;
+        }
+
+        .logo-small {
+            padding: 0 6px;
+            margin-right: 1px;
+            font-size: 22px;
+        }
+    </style>
+{% endblock %}
+
+{% block navigation %}
+    <li {% if name == "index" %} class="active" {% endif %}>
+        <a class="brand" href="{% url index %}">
+            <span class="badge badge-success logo logo-small">C</span>ommentum
+        </a>
+    </li>
+    <li {% if name == "get" %} class="active" {% endif %}>
+        <a href="{% url get %}">Загрузить</a>
+    </li>
+    <li {% if name == "about" %} class="active" {% endif %}>
+        <a href="{% url about %}">О сервисе</a>
+    </li>
+{% endblock %}
+
+{% block bottom_menu_info %}
+    <h4>Информация</h4>
+    <ul>
+        <li><a href="#">Букмарклет</a></li>
+        <li><a href="#">Плагин</a></li>
+        <li><a href="#">Функционал</a></li>
+    </ul>
+{% endblock %}
+
+{% block bottom_menu_about %}
+    <h4>О сервисе</h4>
+    <ul>
+        <li><a href="#">Сервис</a></li>
+        <li><a href="#">Команда</a></li>
+        <li><a href="#">Разработка</a></li>
+    </ul>
+{% endblock %}
+
+{% block copyright %}
+    © 2012 Команда разработки Commentum
+{% endblock %}

@@ -1,0 +1,257 @@
+{namespace commentum.templates}
+
+/*
+ * page.panelId						объемлющий
+ * page.commentsShowId				кнопка
+ * page.commentsId					сюда отрисовываются page_comments
+ *
+ * page_comments.id					объемлющий
+ * page_comments.commentsId			сюда отрисовываются комментарии
+ * page_comments.formId				сюда отрисовывается форма
+ * page_comments.form				инфа для формы
+ * page_comments.comment_list		комментарии
+ *
+ * block_comments.id				объемлющий
+ * block_comments.commentsId		сюда отрисовываются комментарии
+ * block_comments.formId			сюда отрисовывается форма
+ * block_comments.form				инфа для формы
+ * block_comments.comment_list		комментарии
+ *
+ * form.id							объемлющий
+ * form.textId						текстовое поле
+ * form.submitPostId				кнопка отправки комментария
+ * form.submitLoginId				кнопка логина
+ *
+ * comment.id						объемлющий
+ * comment.author.username			имя автора
+ * comment.date						дата
+ * comment.text						текст
+ *
+ * marker.id						маркер
+ *
+ * block.id							id блока
+ * block.content					текст блока
+ * block.hintSpanId					id внешнего спана подсказки с количеством комментариев
+ * block.hintId						id внутреннего спана подсказки с количеством комментариев
+ * block.commentsNumber				количество комментариев
+ */
+
+
+/**
+ * Control panel.
+ * @param page
+ */
+{template .Page}
+    <div class="page_info" id="{$page.panelId}">
+        <div class="page_control">
+            <div class="page_control_toggle page_content_toggle" id="{$page.commentsShowId}">*</div>
+            <div class="page_control_toggle page_blocks_toggle">b</div>
+            <div class="clear"></div>
+        </div>
+        <div class="page_content" id="{$page.commentsId}"></div>
+    </div>
+{/template}
+
+
+/**
+ * Block.
+ * @param block
+ * @param strings
+ */
+{template .Block}
+    <span class="block_info" id="{$block.id}">
+        {$block.content}
+    </span>
+    <span class="block_info_hint" id="{$block.hintSpanId}">
+        {sp}
+        <span class="block_info_hint_content" id="{$block.hintId}">
+            {call .BlockCommentCount}
+                {param block: $block /}
+                {param strings: $strings /}
+            {/call}
+        </span>
+    </span>
+{/template}
+
+/**
+ * Block comment count
+ * @param block
+ * @param strings
+ */
+{template .BlockCommentCount}
+    <span id="{$block.commentCountId}">
+        {if $block.commentCount}
+            {$block.commentCount}
+        {else}
+            {$strings.block_add}
+        {/if}
+    </span>
+{/template}
+
+
+/**
+ * List of page comments.
+ * @param page_comments
+ */
+{template .PageComments}
+    <div class="page_comments" id="{$page_comments.id}">
+        <div class="page_comments_info" id="{$page_comments.commentsId}"></div>
+        <div class="page_comments_post comment_post" id="{$page_comments.commentsPostId}"></div>
+    </div>
+{/template}
+
+/**
+ * Search field for page comments
+ * @param page_comments_search
+ */
+{template .PageCommentsSearch}
+    <div class="page_comments_search" id="{$page_comments_search.id}">
+        <input type="text" size="40" name="" id="{$page_comments_search.textId}" />
+        <div class="page_comments_search_button">s</div>
+    </div>
+{/template}
+
+
+/**
+ * List of block comments.
+ * @param block_comments
+*/
+{template .BlockComments}
+    <span style="position: relative" id="{$block_comments.id}">
+        <div style="position: absolute; left: 0px; bottom: 0px">
+            <div style="position: absolute; left: 0px; top: 0px">
+                <div class="block_comments">
+                    <div class="block_comments_info" id="{$block_comments.commentsId}"></div>
+                    <div class="block_comments_post comment_post" id="{$block_comments.commentsPostId}"></div>
+                </div>
+            </div>
+        </div>
+    </span>
+{/template}
+
+
+/**
+ * A comment.
+ * @param comment
+ */
+{template .Comment}
+    <div class="comment_info" id="{$comment.id}">
+        <div class="comment_width">
+            <div class="comment_info_meta">
+                <div class="comment_info_photo"></div>
+                <div class="comment_info_author">
+                    {$comment.author.username}
+                </div>
+            </div>
+
+            <div class="comment_info_content">
+                <div class="comment_info_date">
+                    {$comment.date}
+                </div>
+                <div class="comment_info_text">
+                    {$comment.text}
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+{/template}
+
+
+/**
+ * Comment post form.
+ * @param comment_post
+ * @param strings
+ */
+{template .CommentPost}
+    <div id="{$comment_post.id}">
+        <form class="comment_post_form comment_width">
+            <div><textarea id="{$comment_post.textId}" class="comment_post_text"></textarea></div>
+            <div><input id="{$comment_post.submitId}" class="comment_post_submit" type="button" value="{$strings.comment_post_submit}" /></div>
+            <div class="clear"></div>
+        </form>
+    </div>
+{/template}
+
+
+/**
+ * Login form.
+ * @param comment_post
+ * @param strings
+ */
+{template .CommentPostAuth}
+    <div id="{$comment_post.id}">
+        <form class="comment_post_login_form comment_width">
+            <div class="comment_post_login">
+                <label class="comment_post_login" for="{$comment_post.loginId}">{$strings.comment_post_login}</label>&nbsp;
+                <input type="text" class="comment_post_login" id="{$comment_post.loginId}" />
+                <div class="clear"></div>
+            </div>
+            <div class="comment_post_password">
+                <label class="comment_post_password" for="{$comment_post.passwordId}">{$strings.comment_post_password}</label>&nbsp;
+                <input type="password" class="comment_post_password" id="{$comment_post.passwordId}" />
+                <div class="clear"></div>
+            </div>
+            <div class="comment_post_login_submit">
+                <input id="{$comment_post.signInId}" class="comment_post_login_signin" type="button" value="{$strings.comment_post_login_signin}" />
+                <input id="{$comment_post.signUpId}" class="comment_post_login_signup" type="button" value="{$strings.comment_post_login_signup}" />
+                <div class="clear"></div>
+            </div>
+            <div class="line"></div>
+            <div class="comment_post_login_other">
+                <label class="comment_post_login_other">{$strings.comment_post_login_other}</label>
+                {foreach $login_service in $comment_post.loginServices}
+                    <span id="{$comment_post.loginServiceId}{$login_service}" class="icon" style="cursor: pointer; margin-right: 12px; background-image: url('/static/images/icon-{$login_service}.png')"></span>
+                {/foreach}
+            </div>
+        </form>
+    </div>
+{/template}
+
+/**
+ * Frame post.
+ * @param comment_post
+ */
+{template .CommentPostFrame}
+    <div id="{$comment_post.id}">
+        <div id="{$comment_post.splashId}" class="comment_post_frame_splash comment_width">Loading...</div>
+    </div>
+{/template}
+
+
+/**
+ * Block marker.
+ * @param block_marker
+ * @param strings
+ */
+{template .BlockMarker}
+    <span class="block_info_hint block_info_hint_selected" id="{$block_marker.id}">
+        {sp}
+        <span class="block_info_hint_content" id="{$block_marker.hintId}">
+            {$strings.block_add}
+        </span>
+    </span>
+{/template}
+
+/**
+ * Create some FrameBlockComments and FramePageComments
+ */
+
+/**
+ * @param page_comments
+ */
+{template .FramePageComments}
+    <div class="comment_post comment_post_inframe" id={$page_comments.id}>
+        <div id={$page_comments.commentsPostId}></div>
+    </div>
+{/template}
+
+/**
+ * @param block_comments
+ */
+{template .FrameBlockComments}
+    <div class="comment_post comment_post_inframe" id={$block_comments.id}>
+        <div id={$block_comments.commentsPostId}></div>
+    </div>
+{/template}

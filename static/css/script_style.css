@@ -1,0 +1,283 @@
+div.clear {
+    clear: both;
+}
+
+div.line {
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+}
+
+span.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: text-top;
+}
+
+body.frame {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page */
+
+div.page_info {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+
+    width: auto;
+}
+
+div.page_control {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div.page_control_toggle {
+    padding-top: 2px;
+
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    font-size: 12pt;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: normal;
+
+    color: #FFFFFF;
+    vertical-align: middle;
+    text-align: center;
+    float: right;
+}
+
+div.page_content_toggle {
+    background: url(../images/toggle.png) no-repeat;
+}
+
+div.page_blocks_toggle {
+    background: url(../images/toggle.png) no-repeat;
+}
+
+div.page_content {
+    border: 1px solid rgb(0, 0, 0);
+    height: 100%;
+}
+
+/* PageComments */
+
+div.page_comments {
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div.page_comments_info {
+
+}
+
+div.page_comments_post {
+
+}
+
+/* Block */
+
+span.block_info {
+    border-bottom: 2px dotted #007F0E;
+    cursor: pointer;
+}
+
+span.block_info_selected {
+    background-color: #CCE5CF;
+}
+
+span.block_info_hint {
+    position: relative;
+    display: none;
+}
+
+span.block_info_hint_selected {
+    display: inline;
+}
+
+span.block_info_hint_content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    width: 29px;
+    height: 22px;
+    padding-top: 2px;
+    padding-left: 10px;
+
+    cursor: pointer;
+    background: url(../images/marker.png) no-repeat;
+
+    font-size: 9pt;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: normal;
+
+    color: #FFFFFF;
+    vertical-align: middle;
+
+    /*border: 1px solid #000000;*/
+}
+
+/* BlockComments */
+
+div.block_comments {
+    margin: 5px 0;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div.block_comments_info {
+
+}
+
+div.block_comments_post {
+
+}
+
+/* Comment */
+
+.comment_width {
+    width: 400px;
+}
+
+div.comment_info {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div.comment_info_meta {
+    width: 70px;
+    padding: 5px;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div.comment_info_photo {
+    width: 46px;
+    padding: 2px 2px;
+    height: 46px;
+    border: 1px solid rgb(0, 0, 0);
+    margin: 4px auto;
+}
+
+div.comment_info_author {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+div.comment_info_content {
+    float: left;
+    padding: 5px;
+}
+
+div.comment_info_date {
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+div.comment_info_text {
+    font-size: 14px;
+}
+
+/* CommentPost */
+
+div.comment_post {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div.comment_post_inframe {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+form.comment_post_form {
+
+}
+
+textarea.comment_post_text {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin-bottom: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+input.comment_post_submit {
+    float: right;
+    width: 100px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* CommentPostFrame */
+
+iframe.comment_post_frame {
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div.comment_post_frame_splash {
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* CommentPostAuth */
+
+form.comment_post_login_form {
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 300px;
+}
+
+div.comment_post_login, div.comment_post_password, div.comment_post_login_submit {
+    margin-bottom: 10px;
+}
+
+div.comment_post_login_other {
+    margin-top: 10px;
+}
+
+label.comment_post_login_other {
+    display: inline-block;
+    text-align: right;
+    margin-right: 12px;
+    width: 72px;
+}
+
+input.comment_post_login, input.comment_post_password {
+    float: right;
+    width: 200px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+input.comment_post_login_signup {
+    float: right;
+    width: 150px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+input.comment_post_login_signin {
+    float: right;
+    width: 140px;
+    margin-left: 10px;
+    border: 1px solid rgb(0, 0, 0);
+}
